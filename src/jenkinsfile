@@ -1,0 +1,11 @@
+node {
+    stage('compile-and-package') {
+    
+    git 'https://github.com/kmshejwal/spring-project.git'
+    }
+    stage('unitTest'){
+        bat 'mvn surefire:test'
+          step([$class: 'Publisher'])
+      
+    }
+}
